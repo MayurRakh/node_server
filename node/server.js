@@ -27,7 +27,9 @@ async function main() {
 }
 main().catch(console.error);
 
-
+app.get('/',(req,res,next) => {
+	res.send('Hello Mukesh ....... from Node Js using Nodemon');
+});
 
 //save
 app.post("/insert", (req, res) => {
