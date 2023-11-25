@@ -1,10 +1,10 @@
 FROM node:10-alpine
-RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
-WORKDIR /home/node/app
+#RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+WORKDIR /app
 COPY package*.json ./
-USER node
+# USER node
 RUN npm install
-COPY --chown=node:node . .
+COPY . .
 EXPOSE 6001
 
 CMD [ "node", "server.js" ]
