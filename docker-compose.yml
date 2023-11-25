@@ -2,7 +2,7 @@ version: '3'
 services:
     nodeserver:
         build:
-          context: ./app
+          context: ./node
         ports:
             - "6001:6001" 
         networks:
@@ -17,7 +17,13 @@ services:
             - nodeserver
         networks:
             - example-net
-
+    react-app:
+       image: react-app-image
+       container_name: app-frontend  
+       networks:
+        - example-net
+       ports:
+        - "3000:3000"
 networks:
   example-net:
     external: true
