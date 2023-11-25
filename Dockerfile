@@ -1,10 +1,6 @@
-FROM node:10-alpine
-#RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+FROM node:latest
 WORKDIR /app
-COPY package*.json ./
-# USER node
+COPY package.json /app
 RUN npm install
-COPY . .
-EXPOSE 6001
-
-CMD [ "node", "server.js" ]
+COPY . /app
+CMD ["npm", "start"]
